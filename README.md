@@ -1,1 +1,3 @@
-# googleTranslateToken
+# Google translate token generator
+
+
