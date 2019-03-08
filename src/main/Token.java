@@ -75,7 +75,7 @@ public class Token {
             a = go(a, "+-a^+6");
         }
         a = go(a, "+-3^+b+-f");
-        a ^= Long.parseLong(tkk[1]);
+        a ^= (int)Long.parseLong(tkk[1]);
         if (0 > a) a = (a & 2147483647) + 2147483648L;
         a %= 1000000;
 
