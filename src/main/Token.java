@@ -69,20 +69,20 @@ public class Token {
                 e.add(k & 63 | 128);
             }
         }
-        long a = b;
+        int a = (int)b;
         for (int f = 0; f < e.size(); f++) {
             a += e.get(f);
             a = go(a, "+-a^+6");
         }
         a = go(a, "+-3^+b+-f");
         a ^= (int)Long.parseLong(tkk[1]);
-        if (0 > a) a = (a & 2147483647) + 2147483648L;
+        if (0 > a) a = (int) ((a & 2147483647) + 2147483648L);
         a %= 1000000;
 
         return a + "." + (a ^ b);
     }
 
-     private long go(long in, String b) {
+     private int go(long in, String b) {
         int out = (int) in;
         for (int c = 0; c < b.length() - 2; c += 3) {
             int d = b.charAt(c + 2);
