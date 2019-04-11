@@ -76,7 +76,11 @@ public class Token {
         }
         a = go(a, "+-3^+b+-f");
         a ^= (int)Long.parseLong(tkk[1]);
-        if (0 > a) a = (int) ((a & 2147483647) + 2147483648L);
+        if (0 > a) {
+            long aL = a & Integer.MAX_VALUE + 0x80000000L;
+            aL %= 1e6;
+            return aL + "." + (aL ^ b);
+        }
         a %= 1000000;
 
         return a + "." + (a ^ b);
